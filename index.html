@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Melodia: Sua Música, Sua Forma</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+            rel="stylesheet">
+
+        <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-transparent {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        /* Estilo para a barra de progresso do player */
+        .progress-container {
+            background: #4B5563; /* gray-600 */
+            border-radius: 5px;
+            cursor: pointer;
+            height: 8px;
+            width: 100%;
+        }
+        .progress {
+            background: #10B981; /* teal-500 */
+            border-radius: 5px;
+            height: 100%;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        .playlist-item.active {
+            background-color: #374151; /* gray-700 */
+            color: #10B981; /* teal-500 */
+        }
+    </style>
+    </head>
+    <body class="bg-gray-900 text-white">
+
+        <header id="main-header"
+            class="fixed w-full top-0 z-50 transition-all duration-300">
+            <nav
+                class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-teal-400">Melodia</h1>
+                <div>
+                    <a href="#funcionalidades"
+                        class="mx-2 hover:text-teal-400">Funcionalidades</a>
+                    <a href="#player"
+                        class="mx-2 hover:text-teal-400">Experimente</a>
+                    <a href="#depoimentos"
+                        class="mx-2 hover:text-teal-400">Depoimentos</a>
+                    <a href="#contato"
+                        class="mx-2 hover:text-teal-400">Contato</a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section
+                class="hero h-screen flex items-center justify-center text-center text-white">
+                <div class="bg-black bg-opacity-50 p-10 rounded-lg">
+                    <h2 class="text-5xl font-bold mb-4">Melodia: Sua Música, Sua
+                        Forma</h2>
+                    <p class="text-lg mb-8">O aplicativo que revoluciona sua
+                        experiência musical com som de alta qualidade e
+                        descobertas incríveis.</p>
+                    <a href="#player"
+                        class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-full text-lg">Ouvir
+                        Agora</a>
+                </div>
+            </section>
+
+            <section id="apresentacao" class="py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h3 class="text-3xl font-bold mb-12">Por que escolher o
+                        Melodia?</h3>
+                    <div class="grid md:grid-cols-4 gap-12">
+                        <div class="flex flex-col items-center">
+                            <i
+                                class="fas fa-headphones-alt text-4xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">Qualidade de
+                                Som Superior</h4>
+                            <p class="text-gray-400">Ouça suas músicas com
+                                clareza e profundidade incomparáveis.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i
+                                class="fas fa-music text-4xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">Playlists
+                                Personalizadas</h4>
+                            <p class="text-gray-400">Crie e compartilhe
+                                playlists para cada momento da sua vida.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i
+                                class="fas fa-search-plus text-4xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">Descubra
+                                Novos Artistas</h4>
+                            <p class="text-gray-400">Nosso algoritmo inteligente
+                                recomenda novas jóias musicais.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <i
+                                class="fas fa-mobile-alt text-4xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-semibold mb-2">Interface
+                                Intuitiva</h4>
+                            <p class="text-gray-400">Navegue com facilidade e
+                                encontre o que procura sem complicações.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="funcionalidades" class="bg-gray-800 py-16">
+                <div class="container mx-auto px-6">
+                    <h3
+                        class="text-3xl font-bold text-center mb-10">Funcionalidades
+                        Incríveis</h3>
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+
+                        <div class="bg-gray-700 p-8 rounded-lg">
+                            <i
+                                class="fas fa-download text-3xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">Modo Offline</h4>
+                            <p class="text-gray-400">Baixe suas músicas
+                                favoritas e ouça em qualquer lugar, mesmo sem
+                                internet.</p>
+                        </div>
+
+                        <div class="bg-gray-700 p-8 rounded-lg">
+                            <i
+                                class="fas fa-podcast text-3xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">Rádios e
+                                Podcasts</h4>
+                            <p class="text-gray-400">Explore estações de rádio e
+                                os melhores podcasts em um só lugar.</p>
+                        </div>
+
+                        <div class="bg-gray-700 p-8 rounded-lg">
+                            <i
+                                class="fas fa-align-left text-3xl text-teal-400 mb-4"></i>
+                            <h4 class="text-xl font-bold mb-2">Letras em Tempo
+                                Real</h4>
+                            <p class="text-gray-400">Cante junto com suas
+                                músicas favoritas com letras sincronizadas.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section id="player" class="py-20">
+                <div class="container mx-auto px-6">
+
+                    <div class="max-w-xl mx-auto mb-12">
+                        <h3 class="text-3xl font-bold text-center mb-4">Busque
+                            sua música favorita</h3>
+                        <form id="search-form" class="flex gap-2">
+                            <input type="text" id="search-input"
+                                class="w-full bg-gray-700 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                                placeholder="Nome da música ou artista...">
+                            <button type="submit"
+                                class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-md">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <h3 class="text-3xl font-bold text-center mb-12">Experimente
+                        o Melodia</h3>
+                    <div
+                        class="max-w-4xl mx-auto md:flex gap-8 bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <div class="md:w-1/2 flex flex-col items-center">
+                            <img id="cover"
+                                src="https://e-cdns-images.dzcdn.net/images/cover/default-album-400x400.jpg"
+                                alt="Capa do Álbum"
+                                class="w-64 h-64 rounded-lg shadow-md mb-6">
+                            <div class="text-center mb-4">
+                                <h4 id="title"
+                                    class="text-2xl font-bold">Carregando...</h4>
+                                <p id="artist" class="text-gray-400">Aguarde</p>
+                            </div>
+
+                            <div class="w-full">
+                                <div class="progress-container mb-4"
+                                    id="progress-container">
+                                    <div class="progress" id="progress"></div>
+                                </div>
+                                <div
+                                    class="flex justify-center items-center gap-8">
+                                    <button id="prev"
+                                        class="text-3xl hover:text-teal-400"><i
+                                            class="fas fa-backward"></i></button>
+                                    <button id="play"
+                                        class="text-5xl bg-teal-500 w-20 h-20 rounded-full flex items-center justify-center hover:bg-teal-600">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button id="next"
+                                        class="text-3xl hover:text-teal-400"><i
+                                            class="fas fa-forward"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="playlist-container"
+                            class="md:w-1/2 mt-8 md:mt-0 bg-gray-900 p-4 rounded-lg h-96 overflow-y-auto">
+                            <p class="text-center text-gray-400">Carregando
+                                playlist...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="depoimentos" class="bg-gray-800 py-20">
+                <div class="container mx-auto px-6 text-center">
+                    <h3 class="text-3xl font-bold mb-12">O que nossos usuários
+                        dizem</h3>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gray-700 p-6 rounded-lg text-left">
+                            <p
+                                class="text-gray-400 mb-4">"A qualidade do som é simplesmente fantástica! Redescobri minhas músicas favoritas."</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/100?img=1"
+                                    alt="Foto de perfil"
+                                    class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h5 class="font-bold">Ana Silva</h5>
+                                    <p
+                                        class="text-sm text-gray-500">Musicista</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-700 p-6 rounded-lg text-left">
+                            <p
+                                class="text-gray-400 mb-4">"O melhor app para descobrir bandas novas. A interface é super fácil de usar."</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/100?img=2"
+                                    alt="Foto de perfil"
+                                    class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h5 class="font-bold">Carlos Pereira</h5>
+                                    <p class="text-sm text-gray-500">DJ</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-700 p-6 rounded-lg text-left">
+                            <p
+                                class="text-gray-400 mb-4">"Finalmente um app que entende meu gosto musical. As playlists personalizadas são perfeitas!"</p>
+                            <div class="flex items-center">
+                                <img src="https://i.pravatar.cc/100?img=3"
+                                    alt="Foto de perfil"
+                                    class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h5 class="font-bold">Juliana Costa</h5>
+                                    <p
+                                        class="text-sm text-gray-500">Estudante</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contato" class="py-20">
+                <div class="container mx-auto px-6 md:w-1/2">
+                    <h3 class="text-3xl font-bold text-center mb-6">Fique por
+                        dentro!</h3>
+                    <p class="text-center text-gray-400 mb-8">Cadastre seu
+                        e-mail para receber novidades e promoções
+                        exclusivas.</p>
+                    <form>
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="email" placeholder="Seu melhor e-mail"
+                                class="w-full bg-gray-700 text-white p-3 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <button type="submit"
+                                class="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-8 rounded-md">Inscrever</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-gray-900 py-10">
+            <div class="container mx-auto px-6 text-center text-gray-400">
+                <div class="mb-4">
+                    <a href="#" class="mx-3 text-2xl hover:text-teal-400"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" class="mx-3 text-2xl hover:text-teal-400"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="#" class="mx-3 text-2xl hover:text-teal-400"><i
+                            class="fab fa-twitter"></i></a>
+                </div>
+                <p>&copy; 2025 Melodia. Todos os direitos reservados.</p>
+                <a href="#" class="text-sm hover:text-teal-400">Política de
+                    Privacidade</a>
+            </div>
+        </footer>
+
+        <audio id="audio"></audio>
+
+        <script>
+        // --- EFEITO DO MENU ---
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('menu-transparent');
+            } else {
+                header.classList.remove('menu-transparent');
+            }
+        });
+
+        // --- LÓGICA DO PLAYER DE MÚSICA COM API DO DEEZER ---
+        const playBtn = document.getElementById('play');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        
+        const audio = document.getElementById('audio');
+        const progress = document.getElementById('progress');
+        const progressContainer = document.getElementById('progress-container');
+        const title = document.getElementById('title');
+        const artist = document.getElementById('artist');
+        const cover = document.getElementById('cover');
+        const playlistContainer = document.getElementById('playlist-container');
+
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+
+        let songs = [];
+        let songIndex = 0;
+        
+        function handleDeezerResponse(response) {
+            const tracks = response.tracks ? response.tracks.data : response.data;
+
+            if (!tracks || tracks.length === 0) {
+                playlistContainer.innerHTML = '<p class="text-center text-gray-400">Nenhuma música encontrada.</p>';
+                title.innerText = "Sem resultados";
+                artist.innerText = "Tente outra busca";
+                cover.src = 'https://e-cdns-images.dzcdn.net/images/cover/default-album-400x400.jpg';
+                songs = []; // Limpa a lista de músicas
+                return;
+            }
+
+            songs = tracks.map(track => {
+                return {
+                    title: track.title_short,
+                    artist: track.artist.name,
+                    src: track.preview,
+                    cover: track.album.cover_medium
+                };
+            });
+            
+            songIndex = 0;
+            loadSong(songs[songIndex]);
+            renderPlaylist();
+            pauseSong();
+        }
+
+        function fetchInitialPlaylist() {
+            const playlistID = '948759923'; // Ex: Playlist "Top Brasil"
+            const script = document.createElement('script');
+            script.src = `https://api.deezer.com/playlist/${playlistID}?output=jsonp&callback=handleDeezerResponse`;
+            document.head.appendChild(script);
+        }
+
+        function searchTracks(query) {
+            const script = document.createElement('script');
+            script.src = `https://api.deezer.com/search/track?q=${encodeURIComponent(query)}&output=jsonp&callback=handleDeezerResponse`;
+            document.head.appendChild(script);
+        }
+
+        function loadSong(song) {
+            if (!song) return;
+            title.innerText = song.title;
+            artist.innerText = song.artist;
+            audio.src = song.src;
+            cover.src = song.cover;
+        }
+
+        function renderPlaylist() {
+            playlistContainer.innerHTML = '';
+            songs.forEach((song, index) => {
+                const isActive = index === songIndex;
+                const activeClass = isActive ? 'active' : '';
+                const playlistItem = document.createElement('div');
+                playlistItem.className = `playlist-item p-3 rounded-md cursor-pointer flex justify-between items-center hover:bg-gray-700 ${activeClass}`;
+                playlistItem.innerHTML = `
+                    <div>
+                        <p class="font-semibold">${song.title}</p>
+                        <p class="text-sm text-gray-400">${song.artist}</p>
+                    </div>
+                    <i class="fas ${isActive && !audio.paused ? 'fa-pause' : 'fa-play'} text-teal-400"></i>
+                `;
+                playlistItem.addEventListener('click', () => {
+                    songIndex = index;
+                    loadSong(songs[songIndex]);
+                    playSong();
+                });
+                playlistContainer.appendChild(playlistItem);
+            });
+        }
+
+        function playSong() {
+            if (!songs.length) return;
+            audio.play();
+            playBtn.querySelector('i.fas').classList.remove('fa-play');
+            playBtn.querySelector('i.fas').classList.add('fa-pause');
+            renderPlaylist();
+        }
+
+        function pauseSong() {
+            audio.pause();
+            playBtn.querySelector('i.fas').classList.remove('fa-pause');
+            playBtn.querySelector('i.fas').classList.add('fa-play');
+            renderPlaylist();
+        }
+        
+        function prevSong() {
+            if (!songs.length) return;
+            songIndex--;
+            if (songIndex < 0) {
+                songIndex = songs.length - 1;
+            }
+            loadSong(songs[songIndex]);
+            playSong();
+        }
+
+        function nextSong() {
+            if (!songs.length) return;
+            songIndex++;
+            if (songIndex > songs.length - 1) {
+                songIndex = 0;
+            }
+            loadSong(songs[songIndex]);
+            playSong();
+        }
+
+        function updateProgress(e) {
+            const { duration, currentTime } = e.srcElement;
+            const progressPercent = (currentTime / duration) * 100;
+            progress.style.width = `${progressPercent}%`;
+        }
+        
+        function setProgress(e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            if (duration) {
+                audio.currentTime = (clickX / width) * duration;
+            }
+        }
+
+        // Event Listeners
+        playBtn.addEventListener('click', () => {
+            const isPlaying = playBtn.querySelector('i.fas').classList.contains('fa-pause');
+            isPlaying ? pauseSong() : playSong();
+        });
+
+        prevBtn.addEventListener('click', prevSong);
+        nextBtn.addEventListener('click', nextSong);
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('ended', nextSong);
+        progressContainer.addEventListener('click', setProgress);
+        
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                playlistContainer.innerHTML = '<p class="text-center text-gray-400">Buscando...</p>';
+                searchTracks(searchTerm);
+            }
+        });
+
+        // Inicia o processo buscando a playlist inicial
+        fetchInitialPlaylist();
+    </script>
+    </body>
+</html>
