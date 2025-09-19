@@ -10,7 +10,7 @@ Uma landing page moderna, interativa e totalmente responsiva para o app fictíci
 
 ## 🖼️ Pré-visualização
 
-<img loading="lazy" src="./print" width="40" height="100"/>
+<img loading="lazy" src="./print.mp4" width="40" height="100"/>
 
 
 ## Sobre o Projeto
