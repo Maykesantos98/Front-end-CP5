@@ -46,7 +46,7 @@ O grande destaque é o player de música interativo, que consome dados reais da 
 
 Clone este repositório ou baixe os arquivos:
 
-```git clone https://github.com/seu-usuario/melodia-landing-page.git```
+```git clone https://github.com/Maykesantos98/Front-end-CP5/```
 
 Acesse a pasta do projeto:
 
@@ -60,7 +60,7 @@ Abra a página no navegador:
 
 ## Demonstração Online
 
-🔗 Acesse a Landing Page do Melodia: 
+🔗 Acesse a Landing Page do Melodia: https://maykesantos98.github.io/Front-end-CP5/
 
 ## 📌 Observações
 
